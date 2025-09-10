@@ -1,0 +1,103 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Car Service Provider</title>
+  <link rel="stylesheet" href="{% static 'css/about.css' %}">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <h1>About Us</h1>
+    <p>Your Trusted Partner in Car Care & Automotive Solutions</p>
+  </header>
+
+  <!-- About Section -->
+  <section class="about">
+    <h2>Welcome to [Your Company Name]</h2>
+    <p>
+      Founded in <strong>[Year]</strong>, we are a team of certified mechanics, 
+      service advisors, and customer support professionals committed to keeping your vehicle safe, 
+      reliable, and performing at its best.
+    </p>
+    <p>
+      From routine maintenance to emergency breakdown assistance, we aim to deliver 
+      hassle-free, transparent, and affordable car care services that exceed expectations.
+    </p>
+  </section>
+
+  <!-- Company Details -->
+  <section class="company-details">
+    <h2>Who We Are</h2>
+    <ul>
+      <li><strong>Headquarters:</strong> [City, State, Country]</li>
+      <li><strong>Experience:</strong> [X+] years in automotive servicing</li>
+      <li><strong>Specialization:</strong> Multi-brand servicing & repairs</li>
+      <li><strong>Team:</strong> 30+ skilled professionals</li>
+      <li><strong>Service Network:</strong> [Number] centers across [Region]</li>
+    </ul>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services">
+    <h2>Our Services</h2>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>Routine Maintenance</h3>
+        <p>Oil changes, filters, brakes, and tire rotations.</p>
+      </div>
+      <div class="service-card">
+        <h3>General Repairs</h3>
+        <p>Engine, clutch, transmission, suspension, electrical.</p>
+      </div>
+      <div class="service-card">
+        <h3>Diagnostics</h3>
+        <p>State-of-the-art scanning & testing tools.</p>
+      </div>
+      <div class="service-card">
+        <h3>Detailing & Care</h3>
+        <p>Deep cleaning, polishing, and ceramic coating.</p>
+      </div>
+      <div class="service-card">
+        <h3>Emergency Assistance</h3>
+        <p>24/7 roadside support & towing services.</p>
+      </div>
+      <div class="service-card">
+        <h3>Premium Car Wash</h3>
+        <p>Eco-friendly washing & waxing solutions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="why-choose">
+    <h2>Why Choose Us?</h2>
+    <ul>
+      <li>✔️ Certified Technicians</li>
+      <li>✔️ Multi-Brand Expertise</li>
+      <li>✔️ 100% Genuine Parts</li>
+      <li>✔️ Transparent Pricing</li>
+      <li>✔️ Free Pick-up & Drop</li>
+      <li>✔️ Technology Driven</li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Address:</strong> [Company Address]</p>
+    <p><strong>Phone:</strong> [Company Phone]</p>
+    <p><strong>Email:</strong> [Company Email]</p>
+    <p><strong>Website:</strong> [Company Website]</p>
+  </section>
+
+  
+
+</body>
+</html>
+{% endblock %}
