@@ -1,0 +1,81 @@
+/* Navbar Button */
+.navbar ul li button {
+  background-color: #00c6fb;
+  color: #0b0b0b;      
+  border: none;
+  padding: 8px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.navbar ul li button:hover {
+  background-color: #00f0ff; 
+  color: #111;          
+  transform: scale(1.05);  
+  box-shadow: 0 4px 10px rgba(0, 198, 251, 0.5);
+}
+/* ========================================================================================================= */
+/* Dropdown */
+/* Parent <li> positioning */
+.navbar ul li.dropdown {
+  position: relative;
+}
+
+/* Hidden by default */
+.dropdown-content {
+  display: none !important; /* hide by default */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #111;
+  min-width: 50px;
+  border-radius: 5px;
+  box-shadow: 0 8px 10px rgba(0,0,0,0.5);
+  z-index: 1000;
+  margin: 0;        /* remove default margin */
+  padding: 0;       /* remove default padding */
+  list-style: none; 
+}
+
+.navbar ul li.dropdown:hover .dropdown-content {
+  display: block !important; /* show on hover */
+}
+
+
+/* Dropdown items */
+.dropdown-content li a {
+  display: block;
+  padding: 10px 15px;
+  color: #00c6fb;
+  text-decoration: none;
+}
+
+.dropdown-content li a:hover {
+  /* background-color: #00f0ff; */
+  color: #111;
+  text-decoration: underline;
+}
+
+/* Show dropdown on hover */
+.navbar ul li.dropdown:hover .dropdown-content {
+  display: block;
+}
+/* =========================================================================================================== */
+/* Button */
+.btn-outline {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #00f0ff;   /* green border */
+  color: #00f0ff;              /* green text */
+  text-decoration: none;       /* remove underline */
+  border-radius: 6px;          /* rounded corners */
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  border: 2px solid #ffffff;   /* green fill on hover */
+  color: #fff;                 /* white text on hover */
+}

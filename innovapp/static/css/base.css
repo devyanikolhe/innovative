@@ -8,6 +8,12 @@ body {
   line-height: 1.6;
   /* background-color: #0b0b0b; */
 }
+.logo {
+  height: 70px;
+  width: auto;
+  display: block;
+}
+
 .hero{
   height: 80vh;
   background: url("../img/backbanner1.jpg");
@@ -15,9 +21,15 @@ body {
   background-position: center center;
   background-size: cover;            
 }
-.slider{
-  height: 80vh;
+.space1{
+  height: 50vh;
+  background-color: #000000;
 }
+.space2{
+  height: 50vh;
+  background-color: #000000;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -32,7 +44,19 @@ body {
 }
 .navbar ul li {
   margin-left: 20px;
+  display: flex;
+  align-items: center; /* ensures links & button align properly */
 }
+
+.navbar ul li a,
+.navbar ul li .btn-outline,
+.navbar ul li button {
+  line-height: normal;     /* reset inconsistent line height */
+  display: flex;
+  align-items: center;     /* vertically center text inside */
+  justify-content: center;
+}
+
 .navbar ul li a {
   color: #00c6fb;
   text-decoration: none;
@@ -74,13 +98,6 @@ body {
   background-color: transparent;
 }
 
-footer {
-  background-color: #111;
-  color: #00c6fb;
-  text-align: center;
-  padding: 15px;
-  border-top: 1px solid #222;
-}
 
 .header {
   background: linear-gradient(135deg, #0a0a0a, #111f4a); /* Dark black + dark blue */
@@ -142,83 +159,4 @@ section h2 {
 .btn:hover {
   background-color: #00f0ff;
   color: #111;
-}
-/* Navbar Button */
-.navbar ul li button {
-  background-color: #00c6fb;
-  color: #0b0b0b;      
-  border: none;
-  padding: 8px 18px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.navbar ul li button:hover {
-  background-color: #00f0ff; 
-  color: #111;          
-  transform: scale(1.05);  
-  box-shadow: 0 4px 10px rgba(0, 198, 251, 0.5);
-}
-
-
-/* Parent <li> positioning */
-.navbar ul li.dropdown {
-  position: relative;
-}
-
-/* Hidden by default */
-.dropdown-content {
-  display: none !important; /* hide by default */
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #111;
-  min-width: 150px;
-  border-radius: 5px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-  z-index: 1000;
-}
-
-.navbar ul li.dropdown:hover .dropdown-content {
-  display: block !important; /* show on hover */
-}
-
-
-/* Dropdown items */
-.dropdown-content li a {
-  display: block;
-  padding: 10px 15px;
-  color: #00c6fb;
-  text-decoration: none;
-}
-
-.dropdown-content li a:hover {
-  background-color: #00f0ff;
-  color: #111;
-}
-
-/* Show dropdown on hover */
-.navbar ul li.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.slider {
-  width: 100%;
-  height: 60vh; /* Adjust height */
-  overflow: hidden;
-  position: relative;
-}
-
-.slides {
-  display: flex;
-  width: 300%; /* 3 slides, adjust if more */
-  transition: transform 0.5s ease-in-out;
-}
-
-.slides img {
-  width: 100%;
-  flex-shrink: 0;
-  object-fit: cover;
 }

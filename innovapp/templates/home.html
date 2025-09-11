@@ -4,25 +4,61 @@
 <div class="hero">
 
 </div>
+<div class="space1"></div>
 <div class="slider">
   <div class="slides">
-    <img src="{% static 'img/slide1.jpg' %}" alt="Slide 1">
-    <img src="{% static 'img/slide2.jpg' %}" alt="Slide 2">
-    <img src="{% static 'img/slide3.jpg' %}" alt="Slide 3">
+    <img src="{% static 'img/oil.jpg' %}" alt="Slide 1">
+    <img src="{% static 'img/wash.jpg' %}" alt="Slide 2">
+    <img src="{% static 'img/repair.jpg' %}" alt="Slide 3">
+    <img src="{% static 'img/tyre.jpg' %}" alt="Slide 4">
+    <img src="{% static 'img/battery.jpg' %}" alt="Slide 5">
   </div>
 </div>
+<style>
+ .slider {
+  width: 100vw;              /* always full screen width */
+  max-width: 100%;           /* prevent overflow */
+  overflow: hidden;
+  margin: 0 auto;
+  background-color: black;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  
+}
+
+.slides img {
+  flex: 0 0 calc(100% / 3);  /* 3 images per screen width */
+  width: calc(100% / 3);     /* ensures images scale */
+  height: 300px;             /* fixed height */
+  object-fit: cover; 
+  padding:10px        /* fills space without gaps */
+}
+
+
+
+</style>
+
 <script>
-  const slides = document.querySelector('.slides');
-  const totalSlides = slides.children.length;
-  let index = 0;
+ const slides = document.querySelector('.slides');
+const totalSlides = slides.children.length;
+const visibleSlides = 3;
+let index = 0;
 
-  function showNextSlide() {
-    index++;
-    if (index >= totalSlides) index = 0;
-    slides.style.transform = `translateX(-${index * 100}%)`;
+function showNextSlide() {
+  index++;
+  if (index > totalSlides - visibleSlides) {
+    index = 0; // reset when reaching the end
   }
+  slides.style.transform = `translateX(-${index * (100 / visibleSlides)}%)`;
+}
 
-  setInterval(showNextSlide, 3000); // change slide every 3 seconds
+setInterval(showNextSlide, 3000); // change slide every 3 seconds
+
 </script>
+
+<div class="space2"></div>
 
 {% endblock %}

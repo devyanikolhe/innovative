@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block body %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+<section class="contact">
+    <div class="head">
+    <h1>Contact Us</h1>
+    <p>We’d love to hear from you! Fill out the form below or reach us through our details.</p>
+    </div>
+    <div class="contact-container">
+      <!-- Contact Form -->
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Subject" required>
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <!-- Contact Details -->
+      <div class="contact-details">
+        <h3>Our Office</h3>
+        <p>Ganesh Tower,Thane(W)</p>
+        <p>📧 brightcrestsolution@gmail.com</p>
+        <p>+91 9820945153</p>
+        <h3>Business Hours</h3>
+        <p>Mon - Fri: 10:00 AM - 6:00 PM</p>
+        <!-- <p>Sat: 10:00 AM - 4:00 PM</p> -->
+      </div>
+    </div>
+    {% endblock %}

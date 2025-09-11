@@ -6,4 +6,6 @@ urlpatterns = [
     path("", v.home),
     path('aboutus',v.aboutus),
     path('services',v.services),
+    path('contact',v.contact),
+    path('appointment',v.appointment)
 ]

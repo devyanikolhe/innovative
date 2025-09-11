@@ -9,3 +9,9 @@ def aboutus(request):
 
 def services(request):
     return render(request,"services.html")      
+
+def contact(request):
+    return render(request,"contact.html")  
+
+def appointment(request):
+    return render(request,"appointment.html") 
