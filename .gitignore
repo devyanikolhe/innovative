@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+# Django
+*.pyc
+__pycache__/
+db.sqlite3
+
