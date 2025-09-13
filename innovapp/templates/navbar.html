@@ -1,8 +1,13 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
 <header class="navbar">
-  <img src="static/img/logo.jpg" alt="InnovAdMarketing Logo" class="logo">
-  <nav>
+  <img src="{% static 'img/logo.jpg' %}" alt="InnovAdMarketing Logo" class="logo">
+
+  <!-- Hamburger Icon (visible only on mobile) -->
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+  <nav id="navMenu">
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="aboutus">About</a></li>
@@ -18,7 +23,135 @@
       </li>
 
       <li><a href="appointment" class="btn-outline">Get Appointment</a></li>
-
     </ul>
   </nav>
 </header>
+
+<style>
+/* --- Base Navbar Styles --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: black;
+  color: white;
+  padding: 10px 20px;
+}
+
+.logo {
+  height: 50px;
+}
+
+/* Desktop menu */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: orange;
+}
+
+/* Dropdown */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #222;
+  list-style: none;
+  top: 100%;
+  left: 0;
+  min-width: 120px;
+  padding: 5px 0;
+}
+
+.dropdown-content li a {
+  display: block;
+  padding: 8px 15px;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Button style */
+.btn-outline {
+  border: 1px solid orange;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* --- Mobile Responsive Styles --- */
+/* --- Mobile Responsive Styles --- */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  margin-left: auto; /* pushes it to extreme right */
+  padding-right: 10px; /* extra spacing from edge */
+}
+
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: black;
+    width: 200px;
+    display: none;
+    padding: 10px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  /* Dropdown expands on click instead of hover */
+  .dropdown-content {
+    position: static;
+    background: none;
+    display: none;
+  }
+
+  .dropdown.open .dropdown-content {
+    display: block;
+  }
+}
+</style>
+
+<script>
+function toggleMenu() {
+  document.querySelector("nav ul").classList.toggle("show");
+}
+
+// Dropdown open/close on mobile
+document.querySelectorAll(".dropdown > a").forEach(link => {
+  link.addEventListener("click", e => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault(); // prevent redirect
+      link.parentElement.classList.toggle("open");
+    }
+  });
+});
+</script>

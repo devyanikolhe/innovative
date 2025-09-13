@@ -1,33 +1,32 @@
 footer {
   background-color: #111;
   color: #ccc;
-  padding: 40px 20px 20px;
+  padding: 30px 15px 15px;
   border-top: 1px solid #222;
   font-family: Arial, sans-serif;
 }
 
 .footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Desktop: 4 columns */
+  gap: 20px;
   max-width: 1100px;
   margin: 0 auto;
 }
 
 .footer-section {
-  flex: 1 1 220px;
-  margin: 15px;
+  margin: 10px;
 }
 
 .footer-section h3,
 .footer-section h4 {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   color: #00c6fb;
 }
 
 .footer-section p {
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 13px;
+  line-height: 1.4;
   color: #aaa;
 }
 
@@ -37,10 +36,11 @@ footer {
 }
 
 .footer-section ul li {
-  margin: 6px 0;
+  margin: 4px 0;
 }
 
 .footer-section ul li a {
+  font-size: 13px;
   color: #ccc;
   text-decoration: none;
   transition: color 0.3s;
@@ -50,15 +50,11 @@ footer {
   color: #00c6fb;
 }
 
-.social-icons {
-  margin-top: 10px;
-}
-
 .social-icons a {
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 8px;
   color: #ccc;
-  font-size: 18px;
+  font-size: 16px;
   transition: color 0.3s;
 }
 
@@ -68,9 +64,68 @@ footer {
 
 .footer-bottom {
   text-align: center;
-  padding-top: 15px;
+  padding-top: 10px;
   border-top: 1px solid #222;
-  margin-top: 20px;
-  font-size: 13px;
+  margin-top: 15px;
+  font-size: 12px;
   color: #aaa;
+}
+
+/* =================== RESPONSIVE CUSTOM LAYOUT =================== */
+@media (max-width: 900px) {
+  .footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns layout */
+    grid-template-areas:
+      "about about"
+      "links services"
+      "contact contact";
+    gap: 15px;
+    text-align: left;
+  }
+
+  .footer-section.about {
+    grid-area: about;
+  }
+
+  .footer-section.links {
+    grid-area: links;
+  }
+
+  .footer-section.services {
+    grid-area: services;
+  }
+
+  .footer-section.contact {
+    grid-area: contact;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "about about"
+      "links services"
+      "contact contact";
+    gap: 10px;
+  }
+
+  .footer-section {
+    margin: 5px 0;
+  }
+
+  .footer-section h3,
+  .footer-section h4 {
+    font-size: 15px;
+  }
+
+  .footer-section p,
+  .footer-section ul li a {
+    font-size: 12px;
+  }
+
+  .social-icons a {
+    font-size: 18px;
+  }
 }

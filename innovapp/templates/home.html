@@ -1,10 +1,9 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block body %}
-<div class="hero">
-
-</div>
+<div class="hero"></div>
 <div class="space1"></div>
+
 <div class="slider">
   <div class="slides">
     <img src="{% static 'img/oil.jpg' %}" alt="Slide 1">
@@ -14,51 +13,92 @@
     <img src="{% static 'img/battery.jpg' %}" alt="Slide 5">
   </div>
 </div>
+
 <style>
- .slider {
-  width: 100vw;              /* always full screen width */
-  max-width: 100%;           /* prevent overflow */
+/* Base slider container */
+.slider {
+  width: 100%;
   overflow: hidden;
-  margin: 0 auto;
   background-color: black;
 }
 
+/* Slides wrapper */
 .slides {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  
+  box-sizing: border-box;
 }
 
+/* Individual images */
 .slides img {
-  flex: 0 0 calc(100% / 3);  /* 3 images per screen width */
-  width: calc(100% / 3);     /* ensures images scale */
-  height: 300px;             /* fixed height */
-  object-fit: cover; 
-  padding:10px        /* fills space without gaps */
+  flex: 0 0 calc(100% / 3); /* Default desktop: 3 per row */
+  width: calc(100% / 3);
+  height: 300px;
+  object-fit: cover;
+  padding: 10px;
+  box-sizing: border-box;
+  min-width: 0; /* Prevent flex overflow */
 }
 
+/* Tablet view */
+@media (max-width: 1024px) {
+  .slides img {
+    flex: 0 0 calc(100% / 2);
+    width: calc(100% / 2);
+    height: 250px;
+  }
+}
 
-
+/* Mobile view */
+@media (max-width: 600px) {
+  .slides img {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 220px;
+    padding: 5px;
+  }
+}
 </style>
 
 <script>
- const slides = document.querySelector('.slides');
-const totalSlides = slides.children.length;
-const visibleSlides = 3;
-let index = 0;
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelector('.slides');
+  const totalSlides = slides.children.length;
 
-function showNextSlide() {
-  index++;
-  if (index > totalSlides - visibleSlides) {
-    index = 0; // reset when reaching the end
+  function getVisibleSlides() {
+    if (window.innerWidth <= 600) return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 3;
   }
-  slides.style.transform = `translateX(-${index * (100 / visibleSlides)}%)`;
-}
 
-setInterval(showNextSlide, 3000); // change slide every 3 seconds
+  let visibleSlides = getVisibleSlides();
+  let index = 0;
 
+  function updateSlidePosition() {
+    slides.style.transform = `translateX(-${index * (100 / visibleSlides)}%)`;
+  }
+
+  function showNextSlide() {
+    visibleSlides = getVisibleSlides();
+    index++;
+    if (index > totalSlides - visibleSlides) index = 0;
+    updateSlidePosition();
+  }
+
+  // Auto-slide every 3s
+  setInterval(showNextSlide, 3000);
+
+  // Recalculate on resize
+  window.addEventListener("resize", () => {
+    visibleSlides = getVisibleSlides();
+    index = 0;
+    updateSlidePosition();
+  });
+
+  // Initial positioning
+  updateSlidePosition();
+});
 </script>
 
 <div class="space2"></div>
-
 {% endblock %}

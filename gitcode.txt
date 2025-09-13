@@ -1,5 +1,5 @@
 git add .
-git commit -m "your message here"
+git commit -m "till models migrate no functionality"
 git pull origin main
 git push origin main
 git pull origin main

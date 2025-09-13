@@ -1,35 +1,51 @@
+/* ---------- GLOBAL ---------- */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  color: #000000; 
+  color: #000000;
   line-height: 1.6;
   /* background-color: #0b0b0b; */
 }
+
 .logo {
   height: 70px;
   width: auto;
   display: block;
 }
 
-.hero{
+/* ---------- HERO & SPACING ---------- */
+.hero {
   height: 80vh;
-  background: url("../img/backbanner1.jpg");
-  background-repeat: no-repeat;      
-  background-position: center center;
-  background-size: cover;            
+  background: url("../img/backbanner1.jpg") no-repeat center center;
+  background-size: cover;
 }
-.space1{
-  height: 50vh;
-  background-color: #000000;
+
+/* Tablet View */
+@media (max-width: 1024px) {
+  .hero {
+    height: 30vh; /* Reduce height for tablets */
+    background-position: center top; /* Show more of top area */
+  }
 }
-.space2{
+
+/* Mobile View */
+@media (max-width: 400px) {
+  .hero {
+    height: 30vh; /* Smaller height on mobile */
+    background-position: center center; /* Keep focus on center */
+    background-size: cover; /* Ensures full width */
+  }
+}
+
+.space1, .space2 {
   height: 50vh;
   background-color: #000000;
 }
 
+/* ---------- NAVBAR ---------- */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -41,19 +57,19 @@ body {
 .navbar ul {
   list-style: none;
   display: flex;
+  gap: 20px;
 }
 .navbar ul li {
-  margin-left: 20px;
   display: flex;
-  align-items: center; /* ensures links & button align properly */
+  align-items: center;
 }
 
 .navbar ul li a,
 .navbar ul li .btn-outline,
 .navbar ul li button {
-  line-height: normal;     /* reset inconsistent line height */
+  line-height: normal;
   display: flex;
-  align-items: center;     /* vertically center text inside */
+  align-items: center;
   justify-content: center;
 }
 
@@ -67,6 +83,7 @@ body {
   color: #00f0ff;
 }
 
+/* ---------- LAYOUT ---------- */
 .container {
   display: flex;
   flex: 1;
@@ -98,9 +115,9 @@ body {
   background-color: transparent;
 }
 
-
+/* ---------- HEADERS ---------- */
 .header {
-  background: linear-gradient(135deg, #0a0a0a, #111f4a); /* Dark black + dark blue */
+  background: linear-gradient(135deg, #0a0a0a, #111f4a);
   color: #00c6fb;
   text-align: center;
   padding: 60px 20px;
@@ -114,9 +131,10 @@ body {
   color: #80e0ff;
 }
 
+/* ---------- SECTIONS ---------- */
 section {
-  padding: 50px 20px;
-  max-width: 1000px;
+  padding: 0px 20px;
+  /* max-width: 1000px; */
   margin: auto;
 }
 section h2 {
@@ -128,7 +146,7 @@ section h2 {
   padding-bottom: 5px;
 }
 
-
+/* ---------- LISTS ---------- */
 .company-details ul {
   list-style: none;
   padding: 0;
@@ -140,12 +158,13 @@ section h2 {
   position: relative;
 }
 .company-details li::before {
-  content: "🚀"; 
+  content: "🚀";
   position: absolute;
   left: 0;
   color: #00c6fb;
 }
 
+/* ---------- BUTTONS ---------- */
 .btn {
   display: inline-block;
   padding: 10px 25px;
@@ -159,4 +178,79 @@ section h2 {
 .btn:hover {
   background-color: #00f0ff;
   color: #111;
+}
+
+/* ---------- RESPONSIVE MEDIA QUERIES ---------- */
+
+/* Tablets (<= 1024px) */
+@media (max-width: 1024px) {
+  .hero {
+    height: 60vh;
+  }
+  .space1, .space2 {
+    height: 30vh;
+  }
+  .navbar ul {
+    gap: 15px;
+  }
+  .sidebar {
+    width: 180px;
+  }
+}
+
+/* Mobiles (<= 768px) */
+@media (max-width: 768px) {
+  .hero {
+    height: 50vh;
+  }
+  .space1, .space2 {
+    height: 20vh;
+  }
+  
+  /* Convert navbar to column layout */
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .navbar ul {
+    flex-direction: column;
+    width: 100%;
+    display: none; /* hidden until toggle */
+    background-color: #111;
+    padding: 10px 0;
+  }
+  .navbar ul.show {
+    display: flex;
+  }
+
+  /* Sidebar becomes hidden or collapsible */
+  .sidebar {
+    display: none;
+  }
+  .content {
+    width: 100%;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+  .header p {
+    font-size: 1rem;
+  }
+}
+
+/* Small Phones (<= 480px) */
+@media (max-width: 480px) {
+  .hero {
+    height: 30vh;
+  }
+  section {
+    padding: 30px 10px;
+  }
+  .header h1 {
+    font-size: 1.7rem;
+  }
+  .header p {
+    font-size: 0.9rem;
+  }
 }
