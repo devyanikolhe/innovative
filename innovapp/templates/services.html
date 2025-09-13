@@ -1,144 +1,202 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'css/services.css' %}">
 
+<div class="service-page-body">
 
-<section class="hero">
-  <div class="container hero-wrapper">
-    <div class="hero-text">
-      <h1>Reliable Car Services You Can Trust</h1>
-      <p>From scheduled maintenance to emergency repairs, our expert technicians keep your vehicle running smoothly and safely.</p>
-      <div class="hero-buttons">
-        <a href="#" class="btn btn-primary">Book a Service</a>
-        <a href="tel:+911234567890" class="btn btn-secondary">Call Now</a>
-      </div>
-    </div>
-    <div class="hero-image">
-      <img src="" alt="Technician servicing a car in a clean modern garage" />
-    </div>
-  </div>
-</section>
+    <section class="service-page-heros">
+        <div class="service-page-container service-page-hero-content">
+            <div class="service-page-hero-text service-page-fade-in">
+                <h1>Premium Auto Care Services</h1>
+                <p>Expert mechanics with over 15 years of experience serving car owners with quality repairs and maintenance at competitive prices.</p>
+                <div class="service-page-hero-buttons">
+                    <a href="#services" class="service-page-btn">Our Services</a>
+                    <a href="#contact" class="service-page-btn service-page-btn-outline">Contact Us</a>
+                </div>
+            </div>
+            <div class="service-page-hero-image service-page-fade-in">
+                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Professional mechanic performing vehicle maintenance in a modern auto repair shop">
+            </div>
+        </div>
+    </section>
 
+    <section class="service-page-services" id="services">
+        <div class="service-page-container">
+            <div class="service-page-section-title">
+                <h2>Our Services</h2>
+                <p>We offer a comprehensive range of automotive services to keep your vehicle running smoothly and safely.</p>
+            </div>
+            
+            <div class="service-page-services-grid">
+                <div class="service-page-service-card service-page-fade-in">
+                    <div class="service-page-service-icon">
+                        <i class="fas fa-oil-can"></i>
+                    </div>
+                    <h3>Oil Change</h3>
+                    <p>Complete oil and filter change service with quality products to keep your engine running smoothly.</p>
+                    <a href="#book" class="service-page-btn service-page-btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-page-service-card service-page-fade-in">
+                    <div class="service-page-service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Brake Service</h3>
+                    <p>Complete brake inspection, pad replacement, and rotor service to ensure your safety on the road.</p>
+                    <a href="#book" class="service-page-btn service-page-btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-page-service-card service-page-fade-in">
+                    <div class="service-page-service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Engine Repair</h3>
+                    <p>Expert engine diagnostics and repair services to fix performance issues and extend engine life.</p>
+                    <a href="#book" class="service-page-btn service-page-btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-page-service-card service-page-fade-in">
+                    <div class="service-page-service-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Tire Service</h3>
+                    <p>Tire rotation, balancing, and replacement services to ensure optimal traction and handling.</p>
+                    <a href="#book" class="service-page-btn service-page-btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-page-service-card service-page-fade-in">
+                    <div class="service-page-service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Battery Service</h3>
+                    <p>Battery testing, replacement, and electrical system diagnostics to prevent unexpected breakdowns.</p>
+                    <a href="#book" class="service-page-btn service-page-btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-page-service-card service-page-fade-in">
+                    <div class="service-page-service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Full Inspection</h3>
+                    <p>Comprehensive multi-point inspection to identify current and potential future issues with your vehicle.</p>
+                    <a href="#book" class="service-page-btn service-page-btn-outline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="services">
-  <div class="container">
-    <h2 class="section-title">Our Services</h2>
-    <p class="section-subtitle">Quality, transparency, and affordability — choose the service that fits your needs.</p>
-    <div class="services-grid">
-      <article class="service-card">
-        <img src="" alt="Oil Change Service" />
-        <h3>Routine Maintenance</h3>
-        <p>Oil & filter changes, brake inspections, tire rotations — keeping your car in top shape.</p>
-        <a href="#" class="learn-more" data-service="routine">Learn More</a>
-      </article>
-      <article class="service-card">
-        <img src="" alt="Engine Repair Service" />
-        <h3>General Repairs</h3>
-        <p>Engine, transmission, suspension, and electrical repairs by certified professionals.</p>
-        <a href="#" class="learn-more" data-service="repairs">Learn More</a>
-      </article>
-      <article class="service-card">
-        <img src="" alt="Diagnostics Service" />
-        <h3>Diagnostics & Testing</h3>
-        <p>Advanced OBD-II scanning to quickly identify and fix vehicle issues.</p>
-        <a href="#" class="learn-more" data-service="diagnostics">Learn More</a>
-      </article>
-      <article class="service-card">
-        <img src="" alt="Car Detailing Service" />
-        <h3>Detailing & Ceramic Coating</h3>
-        <p>Interior deep cleaning, paint correction, and ceramic coating for lasting protection.</p>
-        <a href="#" class="learn-more" data-service="detailing">Learn More</a>
-      </article>
-      <article class="service-card">
-        <img src="" alt="Roadside Assistance" />
-        <h3>Emergency Roadside Assistance</h3>
-        <p>24/7 towing, jump-starts, tire changes, and on-the-spot troubleshooting.</p>
-        <a href="#" class="learn-more" data-service="roadside">Learn More</a>
-      </article>
-      <article class="service-card">
-        <img src="" alt="Premium Car Wash" />
-        <h3>Premium Car Wash</h3>
-        <p>Eco-friendly wash, wax, and finishing packages tailored to your vehicle.</p>
-        <a href="#" class="learn-more" data-service="wash">Learn More</a>
-      </article>
-    </div>
-  </div>
-</section>
+    <section class="service-page-why-choose" id="about">
+        <div class="service-page-container">
+            <div class="service-page-section-title">
+                <h2>Why Choose Us</h2>
+                <p>Discover what sets AutoElite apart from other auto service providers</p>
+            </div>
+            
+            <div class="service-page-features-grid">
+                <div class="service-page-feature-item service-page-fade-in">
+                    <div class="service-page-feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Certified Technicians</h3>
+                    <p>Our mechanics are certified and trained to work on all makes and models.</p>
+                </div>
+                
+                <div class="service-page-feature-item service-page-fade-in">
+                    <div class="service-page-feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Quality Service</h3>
+                    <p>We use only high-quality parts and provide warranties on all our services.</p>
+                </div>
+                
+                <div class="service-page-feature-item service-page-fade-in">
+                    <div class="service-page-feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Fair Pricing</h3>
+                    <p>Competitive and transparent pricing with no hidden fees or surprises.</p>
+                </div>
+                
+                <div class="service-page-feature-item service-page-fade-in">
+                    <div class="service-page-feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Quick Service</h3>
+                    <p>Most services completed same day with minimal wait time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section class="service-page-testimonials" id="testimonials">
+        <div class="service-page-container">
+            <div class="service-page-section-title">
+                <h2>Customer Testimonials</h2>
+                <p>Hear what our satisfied customers have to say about their experience with AutoElite</p>
+            </div>
+            
+            <div class="service-page-testimonials-grid">
+                <div class="service-page-testimonial-card service-page-fade-in">
+                    <div class="service-page-testimonial-text">
+                        "I've been taking my cars to AutoElite for years. Their service is exceptional, and their mechanics are honest and knowledgeable. I wouldn't trust anyone else with my vehicle."
+                    </div>
+                    <div class="service-page-testimonial-author">
+                        <div class="service-page-author-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Portrait of Michael Johnson, satisfied customer">
+                        </div>
+                        <div class="service-page-author-info">
+                            <h4>Michael Johnson</h4>
+                            <p>Regular Customer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-page-testimonial-card service-page-fade-in">
+                    <div class="service-page-testimonial-text">
+                        "They fixed my braking issue quickly and for much less than the dealership quoted. The staff was friendly and kept me informed throughout the process. Highly recommended!"
+                    </div>
+                    <div class="service-page-testimonial-author">
+                        <div class="service-page-author-avatar">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Portrait of Sarah Williams, satisfied customer">
+                        </div>
+                        <div class="service-page-author-info">
+                            <h4>Sarah Williams</h4>
+                            <p>First-time Customer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-page-testimonial-card service-page-fade-in">
+                    <div class="service-page-testimonial-text">
+                        "As a woman, I sometimes feel intimidated by auto shops, but the team at AutoElite made me feel comfortable and explained everything in terms I could understand. Great service!"
+                    </div>
+                    <div class="service-page-testimonial-author">
+                        <div class="service-page-author-avatar">
+                            <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Portrait of Jennifer Lopez, satisfied customer">
+                        </div>
+                        <div class="service-page-author-info">
+                            <h4>Jennifer Lopez</h4>
+                            <p>Loyal Customer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="pricing">
-  <div class="container">
-    <h2 class="section-title">Service Packages</h2>
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <h3>Basic</h3>
-        <p class="price">₹799</p>
-        <ul>
-          <li>Oil change</li>
-          <li>Filter check</li>
-          <li>Basic inspection</li>
-        </ul>
-        <a href="?package=basic" class="btn btn-outline">Choose Basic</a>
-      </div>
-      <div class="pricing-card featured">
-        <h3>Standard</h3>
-        <p class="price">₹1,499</p>
-        <ul>
-          <li>Full fluid top-up</li>
-          <li>Brake & tire check</li>
-          <li>Diagnostic scan</li>
-        </ul>
-        <a href="?package=standard" class="btn btn-primary">Choose Standard</a>
-      </div>
-      <div class="pricing-card">
-        <h3>Premium</h3>
-        <p class="price">₹2,999</p>
-        <ul>
-          <li>All Standard features</li>
-          <li>Detailing & polishing</li>
-          <li>Free pickup & drop</li>
-        </ul>
-        <a href="?package=premium" class="btn btn-outline">Choose Premium</a>
-      </div>
-    </div>
-  </div>
-</section>
+    <section class="service-page-cta" id="book">
+        <div class="service-page-container">
+            <h2>Ready for Professional Car Service?</h2>
+            <p>Schedule your appointment today and experience the AutoElite difference. We offer convenient online booking and competitive pricing.</p>
+            <a href="#contact" class="service-page-btn service-page-btn-accent">Book Appointment Now</a>
+        </div>
+    </section>
 
-
-<section class="faq">
-  <div class="container">
-    <h2 class="section-title">Frequently Asked Questions</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-question">How long does a standard service take?</button>
-        <div class="faq-answer">Typically 60–90 minutes depending on vehicle condition and workload.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">Do you use genuine parts?</button>
-        <div class="faq-answer">Yes, we use OEM or high-quality equivalent parts with warranty where applicable.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">Is pickup & drop available?</button>
-        <div class="faq-answer">Pickup & drop is available for Standard and Premium packages within our service area.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="cta">
-  <div class="container cta-wrapper">
-    <div class="cta-text">
-      <h2>Need Immediate Assistance?</h2>
-      <p>Call our 24/7 emergency support or book a service online now.</p>
-    </div>
-    <div class="cta-buttons">
-      <a href="tel:+911234567890" class="btn btn-primary">Call Emergency</a>
-      <a href="#" class="btn btn-secondary">Book Online</a>
-    </div>
-  </div>
-</section>
+</div>
 
 <script src="{% static 'js/script.js' %}"></script>
 {% endblock %}
