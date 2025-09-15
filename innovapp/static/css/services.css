@@ -10,6 +10,11 @@
     --service-page-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
     --service-page-transition: all 0.3s ease;
 }
+@media (max-width: 768px) {
+  nav ul {
+    z-index: 9999;
+  }
+}
 
 .service-page-*,
 .service-page- * {

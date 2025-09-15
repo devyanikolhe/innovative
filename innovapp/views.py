@@ -1,8 +1,10 @@
-from django.shortcuts import render
 from django.shortcuts import render, redirect
 from .models import Customer,Service, Testimonial
+from .models import Customer,Service,Appointment
 from django.db import IntegrityError
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import make_password,check_password
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
 
 
 # Create your views here.
@@ -25,16 +27,44 @@ def contact(request):
     return render(request,"contact.html")  
 
 def appointment(request):
-    return render(request,"appointment.html") 
+    if not request.session.get("customer_id"):
+        messages.error(request, "Please log in to book an appointment.")
+        return redirect(f"/login/?next={request.path}")
+    customer = Customer.objects.get(id=request.session["customer_id"])
 
-from django.shortcuts import render, redirect
-from .models import Customer
-from django.contrib import messages
-from django.contrib.auth import authenticate, login
+    if request.method == "POST":
+        service_id = request.POST.get("service")
+        vehicle_type = request.POST.get("vehicle_type")
+        vehicle_brand = request.POST.get("vehicle_brand")
+        vehicle_model = request.POST.get("vehicle_model")
+        appointment_date = request.POST.get("appointment_date")
+        appointment_time = request.POST.get("appointment_time")
 
-from django.contrib.auth.hashers import check_password
+        try:
+            service = Service.objects.get(id=service_id)
+
+            Appointment.objects.create(
+                customer=customer,
+                service=service,
+                vehicle_type=vehicle_type,
+                vehicle_brand=vehicle_brand,
+                vehicle_model=vehicle_model,
+                appointment_date=appointment_date,
+                appointment_time=appointment_time
+            )
+
+            messages.success(request, "✅ Appointment booked successfully!")
+            return redirect("appointment")  # reload page or redirect somewhere else
+
+        except Service.DoesNotExist:
+            messages.error(request, "Invalid service selected.")
+
+    # ✅ For GET request, show appointment form
+    services = Service.objects.all()
+    return render(request, "appointment.html", {"services": services})
 
 def login_view(request):
+    next_url = request.GET.get("next", "/")
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
@@ -43,20 +73,17 @@ def login_view(request):
             customer = Customer.objects.get(username=username)
             print(password,customer.password)
             if check_password(password, customer.password):
-                # ✅ Save session manually
                 request.session["customer_id"] = customer.id
                 request.session["customer_name"] = customer.name
-                # messages.success(request, "Login successful!")
-                return redirect("/")
+                return redirect(next_url)
             else:
                 messages.error(request, "Invalid password.")
         except Customer.DoesNotExist:
             messages.error(request, "User does not exist.")
 
-        return redirect("login")
+        return redirect(f"/login/?next={next_url}")
 
-    return render(request, "login.html")
-
+    return render(request, "login.html", {"next": next_url})
 
 def register_view(request):
     if request.method == "POST":
