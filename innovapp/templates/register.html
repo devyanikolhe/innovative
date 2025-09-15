@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/register.css' %}" />
+</head>
+<body>
+  <div class="register-page">
+    <div class="form-container">
+      <h2>Register</h2>
+
+      <!-- ✅ Show Error Message -->
+      {% if error %}
+        <p style="color:red; text-align:center;">{{ error }}</p>
+      {% endif %}
+
+      <!-- ✅ Show Success Message -->
+      {% if success %}
+        <p style="color:green; text-align:center;">{{ success }}</p>
+      {% endif %}
+
+      <form method="POST">
+        {% csrf_token %}
+        <label for="fullname">Full Name</label>
+        <input type="text" name="name" id="fullname" placeholder="Enter your name" required>
+
+        <label for="username">Username</label>
+        <input type="username" name="username" id="username" placeholder="Enter your Username" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="text" name="phone_number" id="phone" placeholder="Enter your phone number">
+
+        <label for="address">Address</label>
+        <input type="text" name="address" id="address" placeholder="Enter your address">
+
+        <label for="passw">Password</label>
+        <input type="text" name="passw" id="passw" placeholder="Enter your Password">
+
+        <button type="submit">Register</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+{% endblock %}

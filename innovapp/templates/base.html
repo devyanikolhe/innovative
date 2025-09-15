@@ -21,5 +21,10 @@
 
     {% include 'footer.html'%}
     <script src="script.js"></script>
+    {% if request.session.customer_id %}
+<div class="welcome-box">
+  👋 Welcome, {{ request.session.customer_name }}
+</div>
+{% endif %}
 </body>
 </html>
