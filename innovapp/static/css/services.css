@@ -177,6 +177,7 @@
     transition: var(--service-page-transition);
     text-align: center;
     border-top: 4px solid var(--service-page-primary);
+    
 }
 
 .service-page-service-card:hover {

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
-from .models import Customer
+from .models import Customer,Service, Testimonial
 from django.db import IntegrityError
 from django.contrib.auth.hashers import make_password
 
@@ -13,7 +13,13 @@ def aboutus(request):
     return render(request,"aboutus.html")   
 
 def services(request):
-    return render(request,"services.html")      
+    services = Service.objects.all()
+    testimonials = Testimonial.objects.all()
+    return render(request, "services.html", {
+        "services": services,
+        "testimonials": testimonials
+    })
+         
 
 def contact(request):
     return render(request,"contact.html")  

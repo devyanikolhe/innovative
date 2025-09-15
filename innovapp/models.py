@@ -3,7 +3,7 @@ from django.db import models
 # Customer
 class Customer(models.Model):
     name = models.CharField(max_length=255)
-    username = models.CharField(unique=True)
+    username = models.CharField(unique=True, max_length=20)
     phone_number = models.CharField(max_length=20)
     password = models.CharField(max_length=255)
     address = models.TextField()
@@ -31,8 +31,9 @@ class ServiceProvider(models.Model):
 class Service(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    duration = models.PositiveIntegerField(help_text="Duration in minutes")
+    price = models.CharField(max_length=100)
+    duration = models.CharField(max_length=100,help_text="Duration in minutes")
+    icon = models.CharField(max_length=100, default="fas fa-cogs", help_text="Font Awesome class e.g. fas fa-tools")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):
@@ -80,3 +81,13 @@ class Payment(models.Model):
     payment_date = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return f"Payment for {self.appointment}"
+
+class Testimonial(models.Model):
+    name = models.CharField(max_length=255)
+    role = models.CharField(max_length=255, blank=True, help_text="e.g. Regular Customer, First-time Customer")
+    feedback = models.TextField()
+    image = models.ImageField(upload_to="testimonials/", blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.role if self.role else 'Customer'}"

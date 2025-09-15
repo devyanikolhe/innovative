@@ -8,6 +8,7 @@
 
 <div class="service-page-body">
 
+    <!-- Hero Section -->
     <section class="service-page-heros">
         <div class="service-page-container service-page-hero-content">
             <div class="service-page-hero-text service-page-fade-in">
@@ -19,11 +20,12 @@
                 </div>
             </div>
             <div class="service-page-hero-image service-page-fade-in">
-                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Professional mechanic performing vehicle maintenance in a modern auto repair shop">
+                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=600&h=400&q=80" alt="Professional mechanic performing vehicle maintenance">
             </div>
         </div>
     </section>
 
+    <!-- Services (Dynamic) -->
     <section class="service-page-services" id="services">
         <div class="service-page-container">
             <div class="service-page-section-title">
@@ -32,63 +34,23 @@
             </div>
             
             <div class="service-page-services-grid">
+                {% for service in services %}
                 <div class="service-page-service-card service-page-fade-in">
                     <div class="service-page-service-icon">
-                        <i class="fas fa-oil-can"></i>
+                        <i class="{{ service.icon }}"></i>
                     </div>
-                    <h3>Oil Change</h3>
-                    <p>Complete oil and filter change service with quality products to keep your engine running smoothly.</p>
-                    <a href="#book" class="service-page-btn service-page-btn-outline">Learn More</a>
+                    <h3>{{ service.name }}</h3>
+                    <p>{{ service.description }}</p>
+                    <a href="#" class="service-page-btn service-page-btn-outline">Learn More</a>
                 </div>
-                
-                <div class="service-page-service-card service-page-fade-in">
-                    <div class="service-page-service-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3>Brake Service</h3>
-                    <p>Complete brake inspection, pad replacement, and rotor service to ensure your safety on the road.</p>
-                    <a href="#book" class="service-page-btn service-page-btn-outline">Learn More</a>
-                </div>
-                
-                <div class="service-page-service-card service-page-fade-in">
-                    <div class="service-page-service-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>Engine Repair</h3>
-                    <p>Expert engine diagnostics and repair services to fix performance issues and extend engine life.</p>
-                    <a href="#book" class="service-page-btn service-page-btn-outline">Learn More</a>
-                </div>
-                
-                <div class="service-page-service-card service-page-fade-in">
-                    <div class="service-page-service-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <h3>Tire Service</h3>
-                    <p>Tire rotation, balancing, and replacement services to ensure optimal traction and handling.</p>
-                    <a href="#book" class="service-page-btn service-page-btn-outline">Learn More</a>
-                </div>
-                
-                <div class="service-page-service-card service-page-fade-in">
-                    <div class="service-page-service-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Battery Service</h3>
-                    <p>Battery testing, replacement, and electrical system diagnostics to prevent unexpected breakdowns.</p>
-                    <a href="#book" class="service-page-btn service-page-btn-outline">Learn More</a>
-                </div>
-                
-                <div class="service-page-service-card service-page-fade-in">
-                    <div class="service-page-service-icon">
-                        <i class="fas fa-car"></i>
-                    </div>
-                    <h3>Full Inspection</h3>
-                    <p>Comprehensive multi-point inspection to identify current and potential future issues with your vehicle.</p>
-                    <a href="#book" class="service-page-btn service-page-btn-outline">Learn More</a>
-                </div>
+                {% empty %}
+                <p>No services added yet.</p>
+                {% endfor %}
             </div>
         </div>
     </section>
 
+    <!-- Why Choose Us (Static) -->
     <section class="service-page-why-choose" id="about">
         <div class="service-page-container">
             <div class="service-page-section-title">
@@ -98,33 +60,22 @@
             
             <div class="service-page-features-grid">
                 <div class="service-page-feature-item service-page-fade-in">
-                    <div class="service-page-feature-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
+                    <div class="service-page-feature-icon"><i class="fas fa-user-tie"></i></div>
                     <h3>Certified Technicians</h3>
                     <p>Our mechanics are certified and trained to work on all makes and models.</p>
                 </div>
-                
                 <div class="service-page-feature-item service-page-fade-in">
-                    <div class="service-page-feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
+                    <div class="service-page-feature-icon"><i class="fas fa-shield-alt"></i></div>
                     <h3>Quality Service</h3>
                     <p>We use only high-quality parts and provide warranties on all our services.</p>
                 </div>
-                
                 <div class="service-page-feature-item service-page-fade-in">
-                    <div class="service-page-feature-icon">
-                        <i class="fas fa-dollar-sign"></i>
-                    </div>
+                    <div class="service-page-feature-icon"><i class="fas fa-dollar-sign"></i></div>
                     <h3>Fair Pricing</h3>
                     <p>Competitive and transparent pricing with no hidden fees or surprises.</p>
                 </div>
-                
                 <div class="service-page-feature-item service-page-fade-in">
-                    <div class="service-page-feature-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
+                    <div class="service-page-feature-icon"><i class="fas fa-clock"></i></div>
                     <h3>Quick Service</h3>
                     <p>Most services completed same day with minimal wait time.</p>
                 </div>
@@ -132,6 +83,7 @@
         </div>
     </section>
 
+    <!-- Testimonials (Dynamic) -->
     <section class="service-page-testimonials" id="testimonials">
         <div class="service-page-container">
             <div class="service-page-section-title">
@@ -140,54 +92,29 @@
             </div>
             
             <div class="service-page-testimonials-grid">
+                {% for testimonial in testimonials %}
                 <div class="service-page-testimonial-card service-page-fade-in">
                     <div class="service-page-testimonial-text">
-                        "I've been taking my cars to AutoElite for years. Their service is exceptional, and their mechanics are honest and knowledgeable. I wouldn't trust anyone else with my vehicle."
+                        "{{ testimonial.feedback }}"
                     </div>
                     <div class="service-page-testimonial-author">
                         <div class="service-page-author-avatar">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Portrait of Michael Johnson, satisfied customer">
+                            <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}">
                         </div>
                         <div class="service-page-author-info">
-                            <h4>Michael Johnson</h4>
-                            <p>Regular Customer</p>
+                            <h4>{{ testimonial.name }}</h4>
+                            <p>{{ testimonial.role }}</p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="service-page-testimonial-card service-page-fade-in">
-                    <div class="service-page-testimonial-text">
-                        "They fixed my braking issue quickly and for much less than the dealership quoted. The staff was friendly and kept me informed throughout the process. Highly recommended!"
-                    </div>
-                    <div class="service-page-testimonial-author">
-                        <div class="service-page-author-avatar">
-                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Portrait of Sarah Williams, satisfied customer">
-                        </div>
-                        <div class="service-page-author-info">
-                            <h4>Sarah Williams</h4>
-                            <p>First-time Customer</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="service-page-testimonial-card service-page-fade-in">
-                    <div class="service-page-testimonial-text">
-                        "As a woman, I sometimes feel intimidated by auto shops, but the team at AutoElite made me feel comfortable and explained everything in terms I could understand. Great service!"
-                    </div>
-                    <div class="service-page-testimonial-author">
-                        <div class="service-page-author-avatar">
-                            <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Portrait of Jennifer Lopez, satisfied customer">
-                        </div>
-                        <div class="service-page-author-info">
-                            <h4>Jennifer Lopez</h4>
-                            <p>Loyal Customer</p>
-                        </div>
-                    </div>
-                </div>
+                {% empty %}
+                <p>No testimonials added yet.</p>
+                {% endfor %}
             </div>
         </div>
     </section>
 
+    <!-- Call to Action -->
     <section class="service-page-cta" id="book">
         <div class="service-page-container">
             <h2>Ready for Professional Car Service?</h2>
