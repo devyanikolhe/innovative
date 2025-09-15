@@ -102,7 +102,7 @@ def register_view(request):
                 address=address,
                 password=make_password(password)
             )
-            return render(request, "login.html", {"success": "Registration successful! You can now log in."})
+            return redirect("/login")
 
         except IntegrityError:
             # Email must be unique, handle duplicate
